@@ -1,0 +1,226 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper]{geometry}
+\geometry{left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm}
+
+\usepackage{ctex} % 支持中文的LaTeX宏包
+\usepackage{amsmath,amsfonts,graphicx,subfigure,amssymb,bm,amsthm,mathrsfs,mathtools,breqn} % 数学公式和符号的宏包集合
+\usepackage{algorithm,algorithmicx} % 算法和伪代码的宏包
+\usepackage[noend]{algpseudocode} % 算法和伪代码的宏包
+\usepackage{fancyhdr} % 自定义页眉页脚的宏包
+\usepackage[framemethod=TikZ]{mdframed} % 创建带边框的框架的宏包
+\usepackage{fontspec} % 字体设置的宏包
+\usepackage{adjustbox} % 调整盒子大小的宏包
+\usepackage{fontsize} % 设置字体大小的宏包
+\usepackage{tikz,xcolor} % 绘制图形和使用颜色的宏包
+\usepackage{multicol} % 多栏排版的宏包
+\usepackage{multirow} % 表格中合并单元格的宏包
+\usepackage{pdfpages} % 插入PDF文件的宏包
+\RequirePackage{listings} % 在文档中插入源代码的宏包
+\RequirePackage{xcolor} % 定义和使用颜色的宏包
+\usepackage{wrapfig} % 文字绕排图片的宏包
+\usepackage{bigstrut,multirow,rotating} % 支持在表格中使用特殊命令的宏包
+\usepackage{booktabs} % 创建美观的表格的宏包
+\usepackage{circuitikz} % 绘制电路图的宏包
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  framerule=1pt,
+  rulecolor=\color{gray!35},
+  backgroundcolor=\color{gray!5},
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+}
+
+% 轻松引用, 可以用\cref{}指令直接引用, 自动加前缀. 
+% 例: 图片label为fig:1
+% \cref{fig:1} => Figure.1
+% \ref{fig:1}  => 1
+\usepackage[capitalize]{cleveref}
+% \crefname{section}{Sec.}{Secs.}
+\Crefname{section}{Section}{Sections}
+\Crefname{table}{Table}{Tables}
+\crefname{table}{Table.}{Tabs.}
+
+\setmainfont{Palatino_Linotype}[
+  Path = ../Fonts/,
+  Extension = .ttf
+]
+\setCJKmainfont{SimHei}[
+  Path = ../Fonts/,
+  Extension = .ttf
+]
+\punctstyle{kaiming}
+% 偏好的几个字体, 可以根据需要自行加入字体ttf文件并调用
+
+\renewcommand{\emph}[1]{\begin{kaishu}#1\end{kaishu}}
+
+%改这里可以修改实验报告表头的信息
+\newcommand{\studentNum}{00000000}
+\newcommand{\name}{我是谁}
+\newcommand{\exDate}{2025.03.04}
+\newcommand{\weekDay}{二}
+\newcommand{\ap}{下午}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%若需在页眉部分加入内容, 可以在这里输入
+% \pagestyle{fancy}
+% \lhead{\kaishu 测试}
+% \chead{}
+% \rhead{}
+
+\begin{center}
+    \LARGE \bf 《\, 基\, 础\, 物\, 理\, 实\, 验\, 》\, 实\, 验\, 报\, 告
+\end{center}
+
+\begin{center}
+    \emph{学号}\underline{\makebox[6em][c]{\studentNum}}
+    \emph{姓名}\underline{\makebox[6em][c]{\name}} 
+    \emph{实验日期} \underline{\makebox[8em][c]{\exDate}}
+    \emph{星期} \underline{\makebox[2em][c]{\weekDay}}\;\underline{\makebox[3em][c]{\ap}}
+    {\noindent}
+    \rule[8pt]{17cm}{0.2em}
+\end{center}
+
+\begin{center}
+    \Large \bf 单摆的设计与研究实验
+\end{center}
+
+\section*{一、实验目的}
+
+\begin{enumerate}
+    \item 利用经典的单摆公式，依据器材和对重力加速度的测量精度要求，进行设计性实验基本方法的训练。
+    \item 学习应用误差均分原则，选用适当的仪器和测量方法，完成设计性实验内容。
+\end{enumerate}
+
+\section*{二、实验仪器}
+
+游标卡尺，钢卷尺，电子秒表，单摆实验仪
+
+\section*{三、实验原理}
+
+\begin{enumerate}
+    \item 运用单摆周期公式$T=2\pi\sqrt{\dfrac{l}{g}}$，推导计算重力加速度的公式$g=\dfrac{4\pi ^2l}{T^2}\quad (l=L+\dfrac{d}{2}; T=\dfrac{t}{N}$
+    其中$L$为所测绳长，$d$为所测钢球直径，$t$为所测总时长，$N$为$t$时间内摆球摆动的周期数。
+    由此可得$g=\dfrac{4N^2\pi ^2\left(L+\dfrac{d}{2}\right)}{t^2}$。（$L,d,t,N$均为待测物理量）
+    \item 要求$\dfrac{\Delta g}{g}=\dfrac{\Delta l}{l}+\dfrac{2\Delta t}{t}<1\%$，根据误差均分原理，$\dfrac{\Delta l}{l}<0.5\%; \dfrac{2\Delta t}{t}<0.5\%$\\
+    对$\dfrac{\Delta l}{l}$进行估算，假设摆长$l\approx70.00cm$，为满足$\dfrac{\Delta l}{l}<0.5\%$，则$\Delta l<0.35cm$，$\Delta l=\Delta_L+\dfrac{1}{2}\Delta_D=\Delta_{\text{米}}+\dfrac{1}{2}\Delta_{\text{卡}}\approx0.08cm+\dfrac{0.002cm}{2}=0.081cm<<0.35cm$，因此若使用米尺测量线长，用卡尺测量摆球直径，可以满足$\dfrac{\Delta l}{l}<0.5\%$的要求。\\
+    对$\dfrac{2\Delta t}{t}$进行估算，秒表精度$\Delta_{\text{秒}}\approx0.01s$，开停秒表的总反应时间$\Delta_{\text{人}}\approx0.2s$，则$\Delta t=\Delta_{\text{秒}}+\Delta_{\text{人}}\approx0.2s$。假设单摆周期$T=1.7s$，为了保证$\dfrac{2\Delta t}{t}<0.5\%$，利用$t=N*T$，得到$\dfrac{2\Delta t}{NT}<0.5\%$，所以$N>47$。
+\end{enumerate}
+
+\section*{四、实验内容}
+
+用误差均分原理和测量精度要求设计单摆实验
+
+\begin{enumerate}
+    \item 将实验器材平放于实验台上，将钢球用细绳连接后置于单摆架上；
+    \item 游标卡尺测量钢球直径$d$，测量五组数据并记录；
+    \item 米尺测量摆线长度$L$，测量五组数据并记录；
+    \item 稳定小球后，用直尺使小球平稳摆动，摆幅不超过5°；
+    \item 等平稳摆动后，测量小球摆动50个周期的时间$t$，并记录，重复五次；
+    \item 处理数据，计算平均值后带入算式得到$g$。
+\end{enumerate}
+
+\section*{五、数据记录}
+
+列表记录线长、摆球直径、单摆周期等测量量。原始数据见附页。
+
+\section*{六、数据处理}
+
+由实验数据知，$\overline{L}=75.70cm, \overline{d}=20.06mm,\overline{t}=87.80s$
+\begin{enumerate}
+    \item 计算g
+    
+    $$
+    g=\dfrac{4\pi ^2\left(\overline{L}+\dfrac{\overline{d}}{2}\right)}{\left(\dfrac{\overline{t}}{50}\right)^2}=\dfrac{4\times3.14^2\times\left(75.70\times10^{-2}+\dfrac{20.06\times10^{-3}}{2}\right)}{\left(\dfrac{87.80}{50}\right)^2}=9.810\;m/s^2
+    $$
+    
+    深圳重力加速度参考值为$g_{\text{参}}=9.7887\;m/s^2$，得出相对误差为$\dfrac{|g-g_{\text{参}}|}{g_{\text{参}}}=\dfrac{|9.810-9.789|}{9.789}=0.00215<0.01$，误差初步符合实验要求。
+    
+    \item $A$类不确定度
+    
+    $
+    u_A(L) = \sqrt{\dfrac{\sum_{i=1}^5(L_i-\overline{L})^2}{n(n-1)}} = \sqrt{\dfrac{(75.68-75.70)^2+\cdots+(75.71-75.70)^2}{5\times4}}=7.071\times10^{-3}cm
+    $
+    
+    $
+    u_A(d) = \sqrt{\dfrac{\sum_{i=1}^5(d_i-\overline{d})^2}{n(n-1)}} = \sqrt{\dfrac{(20.06-20.06)^2+\cdots+(20.06-20.06)^2}{5\times4}}=0.00mm
+    $
+    
+    $
+    u_A(t) = \sqrt{\dfrac{\sum_{i=1}^5(t_i-\overline{t})^2}{n(n-1)}} = \sqrt{\dfrac{(87.78-87.80)^2+\cdots+(87.81-87.80)^2}{5\times4}}=0.013s
+    $
+    
+    \item $B$类不确定度
+    
+    $
+    u_B(L) = \dfrac{\sqrt{\Delta_{\text{估}}^2(L)+\Delta_{\text{仪}}^2(L)}}{C}=\dfrac{\sqrt{0.5^2+0.8^2}}{3}=0.31mm
+    $
+    
+    $
+    u_B(d) = \dfrac{\sqrt{\Delta_{\text{估}}^2(d)+\Delta_{\text{仪}}^2(d)}}{C}=\dfrac{\sqrt{0.02^2+0.02^2}}{\sqrt{3}}=0.01mm
+    $
+    
+    $
+    u_B(t) = \dfrac{\sqrt{\Delta_{\text{估}}^2(t)+\Delta_{\text{仪}}^2(t)}}{C}\approx\dfrac{\Delta_{\text{估}}(t)}{C}=\dfrac{0.2}{3}=0.07s
+    $
+    
+    \item 合成不确定度
+    
+    $
+    u_{0.95}(L)=\sqrt{(t_{0.95}u_A(L)^2+(k_{0.95}u_B(L)^2}=\sqrt{(2.78\times7.071\times10^{-3})^2+(1.96\times0.031)^2}=0.06cm
+    $
+    
+    $
+    u_{0.95}(d)=\sqrt{(t_{0.95}u_A(d)^2+(k_{0.95}u_B(d)^2}=\sqrt{(2.78\times0.00)^2+(1.96\times0.01)^2}=0.02mm
+    $
+    
+    $
+    u_{0.95}(t)=\sqrt{(t_{0.95}u_A(t)^2+(k_{0.95}u_B(t)^2}=\sqrt{(2.78\times0.013)^2+(1.96\times0.07)^2}=0.14s
+    $
+    \item 不确定度的传递
+    
+    $l=L+\dfrac{D}{2}$
+    
+    $u(l)=\sqrt{(u(L))^2+\left(\dfrac{1}{2}u(D)\right)^2}=\sqrt{(0.06)^2+\left(\dfrac{1}{2}\times0.002\right)^2}=0.0600cm$
+    
+    $\dfrac{u(l)}{\overline{l}}=\dfrac{0.0600}{75.70}\approx0.00079$
+    
+    $\dfrac{u(t)}{\overline{t}}=\dfrac{0.14}{87.80}\approx0.0016$
+    
+    $\dfrac{u(g)}{\overline{g}}=\sqrt{\left(\dfrac{u(l)}{\overline{l}}\right)^2+\left(\dfrac{2u(T)}{\overline{T}}\right)^2}\approx0.0033$
+    
+    所以$u(g)=0.0033\times9.810=0.032\;m/s^2\approx0.03\;m/s^2\quad(p=0.95)$
+\end{enumerate}
+
+\section*{七、误差分析}
+
+\begin{enumerate}
+    \item 空气阻力干扰小球摆动
+    \item 空调吹风可能干扰小球
+    \item 摆线会有很小的伸缩
+    \item 仪器误差
+    \item 实验员的反应时长
+\end{enumerate}
+
+\section*{八、实验结论}
+
+设计单摆实验，测得南科大理学院P4121实验室的重力加速度为$g=(9.81\pm0.03)\;m/s^2\quad(p=0.95)$，参考值$g_{\text{参}}=9.7887\;m/s^2$，相对误差为$\dfrac{|g-g_{\text{参}}|}{g_{\text{参}}}=\dfrac{|9.810-9.789|}{9.789}\times100\%=0.215\%<1\%$，符合实验要求。
+
+\end{document}

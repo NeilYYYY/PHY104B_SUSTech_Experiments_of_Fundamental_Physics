@@ -1,0 +1,246 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper]{geometry}
+\geometry{left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm}
+
+\usepackage{ctex} % 支持中文的LaTeX宏包
+\usepackage{amsmath,amsfonts,graphicx,subfigure,amssymb,bm,amsthm,mathrsfs,mathtools,breqn} % 数学公式和符号的宏包集合
+\usepackage{algorithm,algorithmicx} % 算法和伪代码的宏包
+\usepackage[noend]{algpseudocode} % 算法和伪代码的宏包
+\usepackage{fancyhdr} % 自定义页眉页脚的宏包
+\usepackage[framemethod=TikZ]{mdframed} % 创建带边框的框架的宏包
+\usepackage{fontspec} % 字体设置的宏包
+\usepackage{adjustbox} % 调整盒子大小的宏包
+\usepackage{fontsize} % 设置字体大小的宏包
+\usepackage{tikz,xcolor} % 绘制图形和使用颜色的宏包
+\usepackage{multicol} % 多栏排版的宏包
+\usepackage{multirow} % 表格中合并单元格的宏包
+\usepackage{pdfpages} % 插入PDF文件的宏包
+\RequirePackage{listings} % 在文档中插入源代码的宏包
+\RequirePackage{xcolor} % 定义和使用颜色的宏包
+\usepackage{wrapfig} % 文字绕排图片的宏包
+\usepackage{bigstrut,multirow,rotating} % 支持在表格中使用特殊命令的宏包
+\usepackage{booktabs} % 创建美观的表格的宏包
+\usepackage{circuitikz} % 绘制电路图的宏包
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+  frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  framerule=1pt,
+  rulecolor=\color{gray!35},
+  backgroundcolor=\color{gray!5},
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+}
+
+% 轻松引用, 可以用\cref{}指令直接引用, 自动加前缀. 
+% 例: 图片label为fig:1
+% \cref{fig:1} => Figure.1
+% \ref{fig:1}  => 1
+\usepackage[capitalize]{cleveref}
+% \crefname{section}{Sec.}{Secs.}
+\Crefname{section}{Section}{Sections}
+\Crefname{table}{Table}{Tables}
+\crefname{table}{Table.}{Tabs.}
+
+\setmainfont{Palatino_Linotype}[
+  Path = ../Fonts/,
+  Extension = .ttf
+]
+\setCJKmainfont{SimHei}[
+  Path = ../Fonts/,
+  Extension = .ttf
+]
+\punctstyle{kaiming}
+% 偏好的几个字体, 可以根据需要自行加入字体ttf文件并调用
+
+\renewcommand{\emph}[1]{\begin{kaishu}#1\end{kaishu}}
+
+%改这里可以修改实验报告表头的信息
+\newcommand{\studentNum}{00000000}
+\newcommand{\name}{我是谁}
+\newcommand{\exDate}{2025.03.25}
+\newcommand{\weekDay}{二}
+\newcommand{\ap}{下午}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%若需在页眉部分加入内容, 可以在这里输入
+% \pagestyle{fancy}
+% \lhead{\kaishu 测试}
+% \chead{}
+% \rhead{}
+
+\begin{center}
+    \LARGE \bf 《\, 基\, 础\, 物\, 理\, 实\, 验\, 》\, 实\, 验\, 报\, 告
+\end{center}
+
+\begin{center}
+    \emph{学号}\underline{\makebox[6em][c]{\studentNum}}
+    \emph{姓名}\underline{\makebox[6em][c]{\name}} 
+    \emph{实验日期} \underline{\makebox[8em][c]{\exDate}}
+    \emph{星期} \underline{\makebox[2em][c]{\weekDay}}\;\underline{\makebox[3em][c]{\ap}}
+    {\noindent}
+    \rule[8pt]{17cm}{0.2em}
+\end{center}
+
+\begin{center}
+    \Large \bf 密立根油滴实验
+\end{center}
+
+\section*{一、实验目的}
+
+\begin{enumerate}
+    \item 验证电荷的不连续性，并测定元电荷的值。
+    \item 学习和理解密立根利用宏观量测量微观量的巧妙设想。
+\end{enumerate}
+
+\section*{二、实验仪器}
+
+密立根油滴实验装置
+
+\section*{三、实验原理}
+
+实验研究对象是带电的油滴，基本思想是使油滴处于受力平衡状态。油滴通过喷雾器喷
+射进入两块相距为$d$的平行极板之间。油在喷射撕裂成油滴时，一般都是带电的。调节两极板之间的电压$U$，可使油滴悬浮在空中。设油滴的质量为$m$，所带的电量为$q$，两极板间的电压为$U$，则油滴所受重力$mg$，静电力$qE=\dfrac{qU}{d}$。\\
+油滴悬浮时，重力与电场力平衡（忽略空气浮力）：
+\begin{equation}
+    q=mg\dfrac{d}{U}
+\end{equation}
+为了测出油滴所带的电量$q$，除了需测定平衡电压$U$和极板间距离$d$外，还需要测量油滴的质量$m$。这种测量电量的方法叫静态平衡法。
+
+因$m$很小，难直接测量。油滴可视为球状，设密度为$\rho$，油滴的质量$m$可表示为：
+\begin{equation}
+    m=\rho\dfrac{4}{3}\pi r^3
+\end{equation}
+而油滴的半径$r$可通过其在重力场中的终极速度求出。平行极板不加电压时，油滴受重力作用而加速下降，由于空气阻力的作用，下降一段距离达到某一速度$v_g$后，阻力$f_r$与重力$mg$平衡，油滴将匀速下降。$v_g$称为终极速度。根据斯托克斯定律，阻力$f_r=6\pi r\eta v$，重力与阻力平衡时：
+\begin{equation}
+    mg=6\pi r\eta v_g
+\end{equation}
+其中$\eta$是空气的粘滞系数，$r$是油滴的半径。\\
+由$(2)$式和$(3)$式得到油滴的半径
+\begin{equation}
+    r=\sqrt{\dfrac{9\eta v_g}{2g\rho}}
+\end{equation}
+当两极板间的电压$U$为零时，设油滴匀速下降的距离为$l$，时间为$t_g$，则
+\begin{equation}
+    v_g=\dfrac{l}{t_g}
+\end{equation}
+\begin{equation}
+    r=\sqrt{\dfrac{9\eta l}{2gt_g\rho}}
+\end{equation}
+
+斯托克斯定律是以连续介质为前提的。对于半径为微米量级的油滴，空气已不能看作连续介质，空气的粘滞系数应作如下修正：
+\begin{equation}
+    \eta'=\dfrac{\eta}{1+\dfrac{b}{pr}}
+\end{equation}
+其中$b$是修正常数，$p$为大气压强。公式中包含油滴的半径$r$，但因为它处于修正项中，不需要十分精确，故它仍可以用$(6)$式计算。最后得到理论公式：
+\begin{equation}
+    q=\dfrac{18\pi d}{\sqrt{2\rho g}}\left[\dfrac{\eta}{1+\dfrac{b}{pr}}\cdot\dfrac{l}{t_g}\right]^{\frac{2}{3}}\cdot\dfrac{1}{U}
+\end{equation}
+上式就是用静态平衡法测定油滴所带电荷的计算公式。其中，
+\begin{center}
+    \begin{minipage}{0.5\textwidth} % 设定合适的宽度
+        \begin{tabbing}
+            电容器极板距离\hspace{2em} \= $d=5.00\,mm$\hspace{7em} \= 大气压强\hspace{3em} \= $p=1.013\times10^5\,Pa$ \\
+            油的密度 \> $\rho=981\,kg/m^3$ \> 油滴下落距离 \> $l=1.6\,mm$ \\
+            重力加速度 \> $g=9.79\,m/s^2$ \> 油滴半径 \> $r$ （由公式$(6)$计算） \\
+            空气粘滞系数 \> $\eta=1.83\times10^{-5}\,kg/(m\cdot s)$ \> 平衡电压 \> $U$ （待测） \\
+            粘滞系数修正常数 \> $b=0.00823\,N/m$ \> 下落时间 \> $t_g$ （待测）
+        \end{tabbing}
+    \end{minipage}
+\end{center}
+
+\section*{四、实验内容}
+
+\begin{enumerate}
+    \item 仪器调整
+    
+    调节仪器面板上的三只平衡旋钮，将平行电极板调到水平。打开仪器和显示器开关，按“确认”键，选“平衡法”，进入测量界面。
+    \item 测量前练习
+    \begin{enumerate}
+        \item 熟悉操作按键。
+        \item 练习喷油和控制油滴平衡。
+    \end{enumerate}
+    \item 正式测量
+    
+    将按键$2$置于工作、按键$3$置于平衡、电压调至$200\;V$左右。向油雾口喷油，调节显微镜旋钮，寻找移动缓慢的油滴，缓慢旋转“电压调节”，使油滴处于悬浮状态。选取适中的油滴：目视直径$\approx1\;mm$。记录此时的平衡电压$U$。将按键$3$切换为“提升”，使油滴上升至顶部网格线，然后将按键$3$切换为“平衡”，使油滴悬浮。然后按下按键$2$，使电压为$0\;V$，油滴匀速下降。当下降到$0$格线时，迅速按下计时按钮，开始计时，待油滴下落至$1.6\;mm$格线，停止计时。记下油滴下落时间$t_g$。同一个油滴测量三次下落时间，共测量五个油滴。
+    \item 计算元电荷
+    \begin{enumerate}
+        \item 根据公式$(6)$和$(8)$，代入已知量，可以得到计算油滴电荷的简化公式：
+        $$
+        q=\dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{t_g}\right)t_g\right]^{\frac{3}{2}}}\times\dfrac{1}{U}
+        $$
+        据此计算油滴所带电荷$q_i(i=1,2,3,4,5)$。
+        \item 计算油滴所带元电荷个数$n_i$。得到每个油滴电量$q_i$后，用$e$的公认值$1.602\times10^{-19}\;C$去除，四舍五入取整得到每个油滴携带的基本电荷个数$n_i$。油滴的元电荷$e_i=\dfrac{q_i}{n_i}$，对$e_i$取平均，求得元电荷值$\overline{e}$，计算元电荷测量值与公认值的相对误差。
+    \end{enumerate}
+\end{enumerate}
+
+\section*{五、数据记录}
+
+原始数据见附录
+
+\section*{六、数据处理}
+
+\begin{enumerate}
+    \item 计算时间平均值；（见附录数据表中的$\overline{t_g}/s$）
+    \item 计算各油滴的电量；
+    \begin{align*}
+        q_1 &= \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{t_{g_1}}\right)t_{g_1}\right]^{\frac{3}{2}}}\times\dfrac{1}{U_1} = \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{17.94}\right)\times17.94\right]^{\frac{3}{2}}}\times\dfrac{1}{196} = 6.01\times10^{-19}\;C \\
+        q_2 &= \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{t_{g_2}}\right)t_{g_2}\right]^{\frac{3}{2}}}\times\dfrac{1}{U_2} = \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{7.24}\right)\times7.24\right]^{\frac{3}{2}}}\times\dfrac{1}{161} = 2.99\times10^{-18}\;C \\
+        q_3 &= \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{t_{g_3}}\right)t_{g_3}\right]^{\frac{3}{2}}}\times\dfrac{1}{U_3} = \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{13.67}\right)\times13.67\right]^{\frac{3}{2}}}\times\dfrac{1}{295} = 6.10\times10^{-19}\;C \\
+        q_4 &= \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{t_{g_4}}\right)t_{g_4}\right]^{\frac{3}{2}}}\times\dfrac{1}{U_4} = \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{14.62}\right)\times14.62\right]^{\frac{3}{2}}}\times\dfrac{1}{266} = 6.09\times10^{-19}\;C \\
+        q_5 &= \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{t_{g_5}}\right)t_{g_5}\right]^{\frac{3}{2}}}\times\dfrac{1}{U_5} = \dfrac{1.022\times10^{-14}}{\left[\left(1+0.02193\sqrt{15.22}\right)\times15.22\right]^{\frac{3}{2}}}\times\dfrac{1}{111} = 1.37\times10^{-18}\;C
+    \end{align*}
+    \item 计算油滴所带元电荷个数$n_i$；
+    \begin{align*}
+        n_1&=\dfrac{q_1}{e}=\dfrac{6.01\times10^{-19}}{1.602\times10^{-19}}\approx4\;(\text{个}) \\
+        n_2&=\dfrac{q_2}{e}=\dfrac{2.99\times10^{-18}}{1.602\times10^{-19}}\approx19\;(\text{个}) \\
+        n_3&=\dfrac{q_3}{e}=\dfrac{6.10\times10^{-19}}{1.602\times10^{-19}}\approx4\;(\text{个}) \\
+        n_4&=\dfrac{q_4}{e}=\dfrac{6.09\times10^{-19}}{1.602\times10^{-19}}\approx4\;(\text{个}) \\
+        n_5&=\dfrac{q_5}{e}=\dfrac{1.37\times10^{-18}}{1.602\times10^{-19}}\approx9\;(\text{个}) 
+    \end{align*}
+    \item 计算元电荷测量值、与公认值的相对误差。
+    \begin{align*}
+        \quad e_1&=\dfrac{q_1}{n_1}=\dfrac{6.01\times10^{-19}}{4}=1.50\times10^{-19}\;C \\
+        \quad e_2&=\dfrac{q_2}{n_2}=\dfrac{6.01\times10^{-19}}{4}=1.57\times10^{-19}\;C \\
+        \quad e_3&=\dfrac{q_3}{n_3}=\dfrac{6.01\times10^{-19}}{4}=1.53\times10^{-19}\;C \\
+        \quad e_4&=\dfrac{q_4}{n_4}=\dfrac{6.01\times10^{-19}}{4}=1.52\times10^{-19}\;C \\
+        \quad e_5&=\dfrac{q_5}{n_5}=\dfrac{6.01\times10^{-19}}{4}=1.52\times10^{-19}\;C
+    \end{align*}
+    \begin{align*}
+        \overline{e}&=\dfrac{\sum_{i=1}^{5}e_i}{5} \\
+        &=\dfrac{1.50\times10^{-19}+1.57\times10^{-19}+1.53\times10^{-19}+1.52\times10^{-19}+1.52\times10^{-19}}{5} \\
+        &=1.53\times10^{-19}\;C \\
+        \dfrac{\Delta e}{e}&=\dfrac{|\overline{e}-e|}{e}=\dfrac{|1.52\times10^{-19}-1.602\times10^{-19}|}{1.602\times10^{-19}}=5.119\%
+    \end{align*}
+\end{enumerate}
+
+\section*{七、误差分析}
+
+\begin{enumerate}
+    \item 油滴会做布朗运动，难以确定油滴是否达到平衡，导致平衡电压有误差；
+    \item 大量给定的常数带来系统误差；
+    \item 油滴受到空气浮力；
+    \item 实验者测量下落时间产生误差。
+\end{enumerate}
+
+\section*{八、实验结论}
+
+本实验利用静态法测量油滴所带电量，进而测得元电荷为$e=1.53\times10^{-19}\;C$，与公认值的相对误差为$5.119\%$。
+
+\end{document}
