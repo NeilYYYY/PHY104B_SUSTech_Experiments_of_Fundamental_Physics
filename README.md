@@ -1,6 +1,6 @@
 # PHY104B_SUSTech_Experiments_of_Fundamental_Physics
 
-SUSTech 基础物理实验
+SUSTech 基础物理实验 2025 Spring
 
 **基础物理实验群——QQ：738363042**
 
@@ -22,4 +22,5 @@ SUSTech 基础物理实验
 8. 数据分析一定要有代入物理量的过程，e.g. $\omega=\sqrt{\dfrac{g}{L}}=\sqrt{\dfrac{9.7887m/s^2}{0.5556m}}=4.197rad/s$
 9. 图表一定要有横轴、纵轴的物理量名称（或者字母）及其单位，还要有标题；
 10. 实验过程有不清楚的问题或者遇到意外情况请即时向老师反映，老师一般是不会为难你的；
-11. to be Filled...
+11. 大实验的Pre注意不要超时，这学期是6min的展示和2min的问答，部分老师会在到时间后直接打断（我们组超时了不少，感谢老师不杀之恩（还有记得要脱稿；
+12. to be Filled...
