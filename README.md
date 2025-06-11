@@ -24,3 +24,21 @@ SUSTech 基础物理实验 2025 Spring
 10. 实验过程有不清楚的问题或者遇到意外情况请即时向老师反映，老师一般是不会为难你的；
 11. 大实验的Pre注意不要超时，这学期是6min的展示和2min的问答，部分老师会在到时间后直接打断（我们组超时了不少，感谢老师不杀之恩（还有记得要脱稿；
 12. to be Filled...
+
+p.s.
+- 大实验录制的视频有点大，没放在文件夹里；
+- 计算都是用计算器和origin，懒得写程序，所以没有程序；
+- 一些origin项目里面内容即繁又乱，请不要直接拿来改了数据就用；
+- 大实验拟合用的matlab，gpt写的代码，应该相当易于阅读。
+- 报告用的是`Fonts/`目录下的字体，使用时记得改路径，懒得折腾字体可以直接把以下代码删掉：
+```
+\setmainfont{Palatino_Linotype}[
+  Path = ../Fonts/,
+  Extension = .ttf
+]
+\setCJKmainfont{SimHei}[
+  Path = ../Fonts/,
+  Extension = .ttf
+]
+\punctstyle{kaiming}
+```
