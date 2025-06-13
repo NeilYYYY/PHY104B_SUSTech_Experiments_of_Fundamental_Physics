@@ -42,3 +42,9 @@ p.s.
 ]
 \punctstyle{kaiming}
 ```
+
+最后推荐一个LaTeX环境搭建教程：
+https://zhuanlan.zhihu.com/p/166523064
+
+鸣谢：中国科学院大学基础物理实验报告$\LaTeX$模板
+https://www.overleaf.com/latex/templates/zhong-guo-ke-xue-yuan-da-xue-ji-chu-wu-li-shi-yan-bao-gao-latexmo-ban-guan-fang-tui-jian-ban/jjcmrzbhrmmg
