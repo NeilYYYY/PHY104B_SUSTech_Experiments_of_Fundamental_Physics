@@ -5,10 +5,10 @@ SUSTech 基础物理实验 2025 Spring
 **基础物理实验群——QQ：738363042**
 
 小实验成绩一览：
-![小实验成绩](小实验成绩.png)
+![小实验成绩](images/小实验成绩.png)
 
 大实验成绩以总评：
-![成绩](成绩.png)
+![成绩](images/成绩.png)
 
 **TIPS**
 
@@ -40,7 +40,6 @@ p.s.
   Path = ../Fonts/,
   Extension = .ttf
 ]
-\punctstyle{kaiming}
 ```
 
 > 最后推荐一个LaTeX环境搭建教程：
